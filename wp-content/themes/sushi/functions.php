@@ -221,11 +221,116 @@ function woo_title_meta_box_save( $post_id ) {
     update_post_meta( $post_id, 'woo_my_subtitle', $wooSubtitle);
 }
 
+/*mon an ngon tab sushi*/
+add_action( 'wp_ajax_get_monanngon_content', 'get_monanngon_content' );
+add_action( 'wp_ajax_nopriv_get_monanngon_content', 'get_monanngon_content' );
 
-add_action( 'wp_ajax_get_sushi_tab_content', 'get_sushi_tab_content' );
-add_action( 'wp_ajax_nopriv_get_sushi_tab_content', 'get_sushi_tab_content' );
+function get_monanngon_content() {
+  	$paged = intval( $_POST['page'] );
+  	$terms = $_POST['terms'];
+ 	$args = array(
+ 		'posts_per_page' => 9,
+ 		'post_type' => 'product',
+ 		'paged' => $paged,
+ 		'tax_query' => array(
+ 			array(
+ 				'taxonomy' => 'product_cat',
+ 				'field' => 'slug',
+ 				'terms' => $terms,
+ 			)
+ 		)
+ 	);
 
-function get_sushi_tab_content() {
-  echo 11111;
+ 	$query = new WP_Query($args);
+ 	if ($query->have_posts()) {
+ 		$i = 0;
+ 		while ($query->have_posts()) {
+ 			$query->the_post();
+ 			if($i == 8) {
+ 				get_template_part( 'template-parts/content', 'monanngon-style-2' );
+ 			} else {
+ 				get_template_part( 'template-parts/content', 'monanngon-style-1' );
+ 			}
+ 			$i++;
+ 		}
+ 	}
+    wp_reset_postdata();
   die();
+}
+
+/*end on an ngon tab sushi*/
+
+
+// Our custom post type function
+function customer_reviews_posttype() {
+  
+    register_post_type( 'customer_reviews',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Cảm nhận khách hàng' ),
+                'singular_name' => __( 'Cảm nhận khách hàng' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'customer_reviews'),
+            'show_in_rest' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail', 'revisions'),
+  
+        )
+    );
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'customer_reviews_posttype' );
+
+// Add Meta Box customer reviews
+add_action( 'add_meta_boxes', 'customer_review_meta_box' );
+
+function customer_review_meta_box() {
+    add_meta_box( 'customer_review_metabox_star', 'Khách hàng đánh giá', 'customer_review_metabox_star_func', array('customer_reviews'), 'normal', 'high' );
+}
+
+function customer_review_metabox_star_func($post) {
+	$star = get_post_meta($post->ID, 'customer_star', true);
+	$name = get_post_meta($post->ID, 'customer_name', true);
+	?>
+	<label>
+		Tên khách hàng: 
+		<input type="text" name="customer_star" value="<?php echo $star; ?>" style="width:100%;">
+	</label>
+	<label>
+		Sao đánh giá: 
+		<input type="text" name="customer_name" value="<?php echo $star; ?>" style="width:100%;">
+	</label>
+	
+	
+	<?php
+}
+
+// Save Meta Box values.
+add_action( 'save_post', 'customer_review_meta_box_save' );
+
+function customer_review_meta_box_save( $post_id ) {
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return; 
+    }
+    if( !current_user_can( 'edit_post' ) ){
+        return; 
+    }
+
+    if(isset($_POST['customer_star'])) {
+        $postStar = $_POST['customer_star'];
+        update_post_meta( $post_id, 'customer_star', $postStar);
+    }
+    if(isset($_POST['customer_name'])) {
+        $postName = $_POST['customer_name'];
+        update_post_meta( $post_id, 'customer_name', $postName);
+    }
+}
+
+add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter' );
+function wcc_change_breadcrumb_delimiter( $defaults ) {
+	// Change the breadcrumb delimeter from '/' to '>'
+	$defaults['delimiter'] = '<img src="'.esc_url(get_template_directory_uri()).'/assets/images/next-arrow.png">';
+	return $defaults;
 }

@@ -1,8 +1,27 @@
-<header class="clearfix">
+<!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oregano&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/carousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/mycss/main.css">
+    
+    <title>Jiro Sushi</title>
+  </head>
+  <body>
+    <div class="my-loading">
+      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Loading_icon.gif">
+    </div>
+    <header class="clearfix">
       <!-- <div class="header_desktop"> -->
         <div class="container">
           <nav class="navbar navbar-expand-lg navbar-light main-nav">
-            <a class="navbar-brand" href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Logo"></a>
+            <a class="navbar-brand" href="/"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Logo"></a>
             <div>
               <button class="js-show-min-cart js-show-min-cart-custom-1">
                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cart.png" class="icon-nav" alt="cart">
@@ -14,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav ml-auto navbar-nav-custom">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Trang Chủ</a>
+                  <a class="nav-link" href="/">Trang Chủ</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="mon-an.html">Thực Đơn</a>
