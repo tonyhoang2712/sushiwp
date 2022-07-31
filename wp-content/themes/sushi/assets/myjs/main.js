@@ -25,7 +25,7 @@ $('.comment-of-customer-content').owlCarousel({
 
 $(function () {
     $('.js-show-min-cart').click(function () {
-        $('.shop-mini').toggle(2000);
+        $('.shop-mini').toggle(400);
     });
 });
 

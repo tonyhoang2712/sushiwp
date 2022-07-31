@@ -334,3 +334,39 @@ function wcc_change_breadcrumb_delimiter( $defaults ) {
 	$defaults['delimiter'] = '<img src="'.esc_url(get_template_directory_uri()).'/assets/images/next-arrow.png">';
 	return $defaults;
 }
+
+remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10, 0);
+remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper_end', 10, 0);
+ 
+add_filter( 'woocommerce_product_tabs', 'my_remove_product_tabs', 98 );
+function my_remove_product_tabs( $tabs ) {
+  unset( $tabs['additional_information'] ); // To remove the additional information tab
+  unset( $tabs['title-reviews'] ); // To remove the additional information tab
+  return $tabs;
+}
+
+add_filter( 'woocommerce_product_tabs', 'rename_custom_tab', 99 );
+function rename_custom_tab( $tabs ) {
+	$tabs[ 'misha_custom_tab' ][ 'title' ] = 'GIỚI THIỆU SẢN PHẨM';
+	return $tabs;
+}
+
+
+// mini cart
+
+function custom_mini_cart() { 
+    echo '<a href="#" class="dropdown-back" data-toggle="dropdown"> ';
+    echo '<i class="fa fa-shopping-cart" aria-hidden="true"></i>';
+    echo '<div class="basket-item-count" style="display: inline;">';
+        echo '<span class="cart-items-count count">';
+            echo WC()->cart->get_cart_contents_count();
+        echo '</span>';
+    echo '</div>';
+    echo '</a>';
+    echo '<ul class="dropdown-menu dropdown-menu-mini-cart">';
+        echo '<li> <div class="widget_shopping_cart_content">';
+                  woocommerce_mini_cart();
+            echo '</div></li></ul>';
+
+      }
+       add_shortcode( '[custom-techno-mini-cart]', 'custom_mini_cart' );

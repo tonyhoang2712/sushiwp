@@ -20,7 +20,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-<main class="product-detail">
+
+<style type="text/css">
+	header {
+	    box-shadow: 0 4px 45px rgb(19 23 61 / 8%);
+	}
+	.woocommerce div.product .product_title {
+		color: #023047;
+	    font-style: normal;
+	    font-weight: 700;
+	    font-size: 25px;
+	    line-height: 160%;
+	}
+	.woocommerce div.product p.price, .woocommerce div.product span.price {
+		color: #E24D2D;
+	    font-style: normal;
+	    font-weight: 700;
+	    font-size: 25px;
+	    line-height: 160%;
+	}
+
+	.woocommerce-product-details__short-description {
+		font-style: normal;
+	    font-weight: 400;
+	    font-size: 17px;
+	    line-height: 180
+	    color: #333;
+	}
+	.wc-tabs {
+		display: none;
+	}
+    
+</style>
+
+<main class="woo-product-details">
 	<div class="container">
 
 	<?php
@@ -48,15 +81,8 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_after_main_content' );
 	?>
-
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
+	</div>
+</main>
 
 <?php
 get_footer( 'shop' );

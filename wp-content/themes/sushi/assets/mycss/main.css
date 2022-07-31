@@ -1025,6 +1025,9 @@ footer {
 	position: relative;
 	top: 3px;
 }
+.woo-product-details {
+	margin-top: 32px;
+}
 .woocommerce-breadcrumb {
 	background-color: unset;
     border-radius: 0;
