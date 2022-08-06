@@ -1443,4 +1443,63 @@ footer {
 	
 }
 
+input.input-text.qty.text::-webkit-outer-spin-button,
+input.input-text.qty.text::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input.input-text.qty.text[type=number] {
+  -moz-appearance: textfield;
+}
+button.qty_button {
+	background: transparent;
+	cursor: pointer;
+	font-size: 22px;
+	padding: 5px 8px;
+	border: none;
+	outline: none;
+	font-weight: 600;
+}
+button.qty_button.minus {
+	color: #999999;
+}
+button.qty_button.plus {
+	color: #999999;
+}
+
+.wrap-my-input-quantity {
+	border: 1px solid #999999;
+	width: 97px;
+	height: 32px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.my-quantity-text {
+	display: none;
+	color: #666666;
+	font-size: 16px;
+	font-weight: 400;
+}
+.woocommerce .quantity .qty {
+    width: 30px !important;
+    padding: 0;
+    border: none;
+    outline: none;
+    color: #333333;
+    font-weight: 600;
+}
+.woocommerce div.product form.cart div.quantity {
+	display: flex;
+	align-items: center;
+	margin-bottom: 40px !important;
+}
+.woocommerce div.product form.cart div.quantity .wrap-my-input-quantity {
+	margin-left: 24px;
+}
+.woocommerce-message {
+    border-top-color: #B63241 !important;
+}

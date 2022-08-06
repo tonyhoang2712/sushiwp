@@ -24,44 +24,30 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php wc_product_class( '', $product ); ?>>
-	<?php
-	/**
-	 * Hook: woocommerce_before_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_open - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item' );
-
-	/**
-	 * Hook: woocommerce_before_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_show_product_loop_sale_flash - 10
-	 * @hooked woocommerce_template_loop_product_thumbnail - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item_title' );
-
-	/**
-	 * Hook: woocommerce_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_product_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_item_title' );
-
-	/**
-	 * Hook: woocommerce_after_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_rating - 5
-	 * @hooked woocommerce_template_loop_price - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item_title' );
-
-	/**
-	 * Hook: woocommerce_after_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_close - 5
-	 * @hooked woocommerce_template_loop_add_to_cart - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item' );
-	?>
-</li>
+<div class="col-lg-3 col-md-4 col-sm-6">
+	<div class="product">
+		<div class="product-item">
+			<div class="product-img">
+				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" 
+							alt="<?php echo get_the_title(); ?>" 
+							class="img-fluid">
+			</div>
+			<div class="product-name">
+				<h3 class="product-name-big"><?php echo get_the_title(); ?></h3>
+				<div class="product-name-small"><?php echo get_post_meta( $post->ID, 'woo_my_subtitle', true ); ?></div>
+				<div class="product-price">
+					<?php 
+						$price = get_post_meta( get_the_ID(), '_regular_price', true );
+						echo $price . "đ/ 1ps";
+					?>
+				</div>
+			</div>
+			<div class="product-cart">
+				<a href="<?php echo esc_url(get_permalink()) ?>" title="<?php echo get_the_title(); ?>"class="product-cart-img product-cart-on">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cart-on.png" class="product-cart-img product-cart-on img-fluid">
+				</a>
+				<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cart-off.png" class="product-cart-img product-cart-off img-fluid">
+			</div>
+		</div>
+	</div>
+</div>

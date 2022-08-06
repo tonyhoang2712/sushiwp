@@ -2,10 +2,6 @@
 <?php
 get_header();
 ?>
- <?php
-  woocommerce_mini_cart()
- ?>
-
 <?php get_template_part( 'template-parts/content', 'banner' ); ?>
 
 <main>

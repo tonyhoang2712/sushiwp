@@ -24,7 +24,7 @@ if ( $related_products ) : ?>
 	<section class="related products">
 
 		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'CÓ THỂ BẠN CŨNG THÍCH', 'woocommerce' ) );
 
 		if ( $heading ) :
 			?>
@@ -32,7 +32,7 @@ if ( $related_products ) : ?>
 		<?php endif; ?>
 		
 		<?php woocommerce_product_loop_start(); ?>
-
+			<div class="row">
 			<?php foreach ( $related_products as $related_product ) : ?>
 
 					<?php
@@ -44,7 +44,7 @@ if ( $related_products ) : ?>
 					?>
 
 			<?php endforeach; ?>
-
+			</div>
 		<?php woocommerce_product_loop_end(); ?>
 
 	</section>
