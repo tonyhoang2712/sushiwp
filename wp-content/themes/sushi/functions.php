@@ -337,20 +337,30 @@ function wcc_change_breadcrumb_delimiter( $defaults ) {
 
 remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10, 0);
 remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper_end', 10, 0);
- 
-add_filter( 'woocommerce_product_tabs', 'my_remove_product_tabs', 98 );
-function my_remove_product_tabs( $tabs ) {
-  unset( $tabs['additional_information'] ); // To remove the additional information tab
-  unset( $tabs['title-reviews'] ); // To remove the additional information tab
-  return $tabs;
-}
 
-add_filter( 'woocommerce_product_tabs', 'rename_custom_tab', 99 );
-function rename_custom_tab( $tabs ) {
-	$tabs[ 'misha_custom_tab' ][ 'title' ] = 'GIỚI THIỆU SẢN PHẨM';
+
+add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
+function woo_rename_tabs( $tabs ) {
+
+	$tabs['description']['title'] = __( 'More Information 111' );		// Rename the description tab
+	$tabs['reviews']['title'] = __( 'Ratings 111' );				// Rename the reviews tab
+	$tabs['additional_information']['title'] = __( 'Product Data 11' );	// Rename the additional information tab
+
 	return $tabs;
+
 }
 
+/**
+ * Change a currency symbol
+ */
+add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
+
+function change_existing_currency_symbol( $currency_symbol, $currency ) {
+     switch( $currency ) {
+          case 'VND': $currency_symbol = 'đ/1ps'; break;
+     }
+     return $currency_symbol;
+}
 
 // mini cart
 

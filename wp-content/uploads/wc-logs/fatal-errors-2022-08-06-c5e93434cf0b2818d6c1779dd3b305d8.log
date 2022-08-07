@@ -1,0 +1,22 @@
+2022-08-06T02:47:20+00:00 CRITICAL Uncaught Error: Call to a member function get_price_html() on null in C:\xampp\htdocs\wordpress\wp-content\themes\sushi\functions.php:355
+Stack trace:
+#0 C:\xampp\htdocs\wordpress\wp-settings.php(566): include()
+#1 C:\xampp\htdocs\wordpress\wp-config.php(96): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\wordpress\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\wordpress\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\wordpress\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\wordpress\wp-content\themes\sushi\functions.php on line 355
+
+2022-08-06T03:00:35+00:00 CRITICAL Uncaught Error: Call to a member function get_price_html() on null in C:\xampp\htdocs\wordpress\wp-content\themes\sushi\functions.php:355
+Stack trace:
+#0 C:\xampp\htdocs\wordpress\wp-settings.php(566): include()
+#1 C:\xampp\htdocs\wordpress\wp-config.php(96): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\wordpress\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\wordpress\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\wordpress\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\wordpress\wp-content\themes\sushi\functions.php on line 355
+
+2022-08-06T03:06:58+00:00 CRITICAL syntax error, unexpected '/' in C:\xampp\htdocs\wordpress\wp-content\themes\sushi\functions.php on line 355
+
