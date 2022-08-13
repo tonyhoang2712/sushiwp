@@ -178,6 +178,13 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 
 // chienHD
+
+if ( function_exists( 'add_theme_support' ) ) { 
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 255, 154, true ); // default Post Thumbnail dimensions (cropped)
+}
+
+
 function mytheme_add_woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
@@ -353,14 +360,14 @@ function woo_rename_tabs( $tabs ) {
 /**
  * Change a currency symbol
  */
-add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
+// add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
 
-function change_existing_currency_symbol( $currency_symbol, $currency ) {
-     switch( $currency ) {
-          case 'VND': $currency_symbol = 'đ/1ps'; break;
-     }
-     return $currency_symbol;
-}
+// function change_existing_currency_symbol( $currency_symbol, $currency ) {
+//      switch( $currency ) {
+//           case 'VND': $currency_symbol = 'đ/1ps'; break;
+//      }
+//      return $currency_symbol;
+// }
 
 // mini cart
 

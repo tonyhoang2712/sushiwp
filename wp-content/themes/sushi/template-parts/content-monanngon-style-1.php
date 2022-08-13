@@ -2,7 +2,7 @@
 	<div class="product">
 		<div class="product-item">
 			<div class="product-img">
-				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" 
+				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'post-thumbnails'); ?>" 
 							alt="<?php echo get_the_title(); ?>" 
 							class="img-fluid">
 			</div>
