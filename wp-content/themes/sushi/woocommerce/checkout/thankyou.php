@@ -17,7 +17,34 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-
+<style type="text/css">
+	@media (min-width: 576px){
+		header.entry-header {
+	    	max-width: 540px;
+		}
+	}
+	@media (min-width: 768px){
+			header.entry-header {
+		    max-width: 720px;
+		}
+	}
+	@media (min-width: 992px){
+		header.entry-header {
+	    max-width: 960px;
+		}
+	}
+	header.entry-header {
+	    max-width: 1140px;
+	}
+	header.entry-header {
+	    width: 100%;
+	    padding-right: 15px;
+	    padding-left: 15px;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+</style>
+<div class="container">
 <div class="woocommerce-order">
 
 	<?php
@@ -85,4 +112,5 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php endif; ?>
 
+</div>
 </div>

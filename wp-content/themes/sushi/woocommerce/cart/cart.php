@@ -106,7 +106,20 @@ do_action( 'woocommerce_before_cart' ); ?>
 	.woocommerce a.remove:hover span svg path,
 	.woocommerce a.remove:hover span svg circle {
 	  stroke: #B63241;
-	} 
+	}
+	.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+		background: #B63241;
+	}
+	.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover {
+		background: #fff;
+		color: #B63241;
+		border: 1px solid #B63241;
+	}
+	a:visited {
+    color: #B63241;
+	}
+
+
 
 </style>
 <div class="page-cart">

@@ -22,6 +22,35 @@ if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 }
 
 ?>
+<style type="text/css">
+    .entry-content {
+        margin: 0 0 0 0;
+        background: rgb(233 233 233 / 70%);
+    }
+   .breadcrumb {
+        background-color: unset;
+        border-radius: 0;
+        margin: 32px 0 32px 0;
+        padding: 32px 0 0;
+    }
+    .post, .page {
+        margin: 0;
+    }
+    form.checkout.woocommerce-checkout {
+        padding: 10px;
+        background: #fff;
+    }
+
+</style>
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?php echo get_home_url(); ?>">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Thanh toán</li>
+        </ol>
+    </nav>
+</div>
+<div class="container">
 <div class="woocommerce-form-coupon-toggle">
 	<?php wc_print_notice( apply_filters( 'woocommerce_checkout_coupon_message', esc_html__( 'Have a coupon?', 'woocommerce' ) . ' <a href="#" class="showcoupon">' . esc_html__( 'Click here to enter your code', 'woocommerce' ) . '</a>' ), 'notice' ); ?>
 </div>
@@ -40,3 +69,4 @@ if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 
 	<div class="clear"></div>
 </form>
+</div>
