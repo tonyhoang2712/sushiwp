@@ -18,7 +18,17 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
-
+?>
+<style type="text/css">
+	nav.woocommerce-breadcrumb {
+	    margin-top: 20px !important;
+	}
+	.woocommerce-products-header {
+		display: none;
+	}
+</style>
+<div class="container">
+<?php
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -29,6 +39,8 @@ get_header( 'shop' );
 do_action( 'woocommerce_before_main_content' );
 
 ?>
+</div>
+<div class="container">
 <header class="woocommerce-products-header">
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
@@ -100,6 +112,8 @@ do_action( 'woocommerce_after_main_content' );
  *
  * @hooked woocommerce_get_sidebar - 10
  */
-do_action( 'woocommerce_sidebar' );
+// do_action( 'woocommerce_sidebar' );
 
 get_footer( 'shop' );
+?>
+</div>

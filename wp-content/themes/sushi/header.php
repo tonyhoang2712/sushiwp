@@ -49,10 +49,10 @@
 									<a class="nav-link" href="<?php echo get_home_url(); ?>">Trang Chủ</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="mon-an.html">Thực Đơn</a>
+									<a class="nav-link" href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>">Thực Đơn</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="shopping-cart.html">Đặt Bàn</a>
+									<a class="nav-link" href="#">Đặt Bàn</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="tel:0964883997">
@@ -62,7 +62,7 @@
 									<li class="nav-item">
 										<a class="nav-link position-relative js-show-min-cart" href="#">
 											<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cart.png" class="icon-nav" alt="cart">
-											<span class="badge badge-light">15</span>
+											<span class="badge badge-light"><?php echo WC()->cart->get_cart_contents_count() ;?></span>
 										</a>
 									</li>
 								</ul>
@@ -70,7 +70,10 @@
 						</nav>
 
 						<div class="shop-mini">
-							<button class="shop-mini-close">
+
+							<?php
+							woocommerce_mini_cart(); ?>
+							<!-- <button class="shop-mini-close">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M19.5304 5.53033C19.8232 5.23744 19.8232 4.76256 19.5304 4.46967C19.2375 4.17678 18.7626 4.17678 18.4697 4.46967L12 10.9394L5.53033 4.46967C5.23744 4.17678 4.76256 4.17678 4.46967 4.46967C4.17678 4.76257 4.17678 5.23744 4.46967 5.53033L10.9394 12L4.4697 18.4697C4.1768 18.7626 4.1768 19.2374 4.4697 19.5303C4.76259 19.8232 5.23746 19.8232 5.53036 19.5303L12 13.0607L18.4697 19.5303C18.7626 19.8232 19.2374 19.8232 19.5303 19.5303C19.8232 19.2374 19.8232 18.7626 19.5303 18.4697L13.0607 12L19.5304 5.53033Z" fill="#999999"/>
 								</svg>
@@ -129,8 +132,28 @@
 							<div class="box-calculation">
 								<span>Tổng tiền hàng</span>
 								<span>150.000đ</span>
-							</div>
+							</div> -->
 						</div>
 
 					</div>
   </header>
+
+  <style type="text/css">
+  	p.woocommerce-mini-cart__buttons.buttons {
+  		display: flex;
+	    align-items: center;
+	    justify-content: space-around;
+  	}
+  	.shop-mini {
+	    width: 300px;
+	    padding: 10px;
+	    height: auto;
+	}
+	.woocommerce ul.cart_list li img, .woocommerce ul.product_list_widget li img {
+	    float: right;
+	    margin-left: 4px;
+	    width: 55px;
+	    height: auto;
+	    box-shadow: none;
+	}
+  </style>

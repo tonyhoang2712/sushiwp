@@ -28,17 +28,17 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	<div class="product">
 		<div class="product-item">
 			<div class="product-img">
-				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" 
-							alt="<?php echo get_the_title(); ?>" 
-							class="img-fluid">
+				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'post-thumbnails'); ?>" 
+				alt="<?php echo get_the_title(); ?>" 
+				class="img-fluid">
 			</div>
 			<div class="product-name">
 				<h3 class="product-name-big"><?php echo get_the_title(); ?></h3>
 				<div class="product-name-small"><?php echo get_post_meta( $post->ID, 'woo_my_subtitle', true ); ?></div>
 				<div class="product-price">
 					<?php 
-						$price = get_post_meta( get_the_ID(), '_regular_price', true );
-						echo $price . "đ/ 1ps";
+					$price = get_post_meta( get_the_ID(), '_regular_price', true );
+					echo $price . "đ/ 1ps";
 					?>
 				</div>
 			</div>

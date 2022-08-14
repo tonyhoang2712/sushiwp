@@ -21,6 +21,35 @@ if ( ! wp_doing_ajax() ) {
 	do_action( 'woocommerce_review_order_before_payment' );
 }
 ?>
+<style type="text/css">
+	button#place_order {
+		background: #B63241;
+		margin-bottom: 30px;
+	}
+	button#place_order:hover {
+	    background: #fff;
+	    color: #B63241;
+	    border: 1px solid #B63241;
+	}
+	.woocommerce-checkout #payment {
+	    background: transparent;
+	    border: none;
+	}
+	.woocommerce-terms-and-conditions-wrapper,
+	#mailpoet_woocommerce_checkout_optin_present_field,
+	#mailpoet_woocommerce_checkout_optin_field,
+	ul.wc_payment_methods.payment_methods.methods {
+	    display: none;
+	}
+	.woocommerce-checkout #payment div.form-row {
+	    padding: 0;
+	}
+	.entry-header,
+	#secondary,
+	.entry-footer {
+		display: none;
+	}
+</style>
 <div id="payment" class="woocommerce-checkout-payment">
 	<?php if ( WC()->cart->needs_payment() ) : ?>
 		<ul class="wc_payment_methods payment_methods methods">
@@ -59,3 +88,4 @@ if ( ! wp_doing_ajax() ) {
 if ( ! wp_doing_ajax() ) {
 	do_action( 'woocommerce_review_order_after_payment' );
 }
+?>

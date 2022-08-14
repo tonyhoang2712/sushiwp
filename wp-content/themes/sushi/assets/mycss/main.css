@@ -1503,3 +1503,6 @@ button.qty_button.plus {
 .woocommerce-message {
     border-top-color: #B63241 !important;
 }
+.woocommerce form .form-row {
+    flex-flow: column;
+}
